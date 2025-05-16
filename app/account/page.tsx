@@ -40,15 +40,18 @@ export default function AccountPage() {
   useEffect(() => {
     if (user) {
       setProfileLoading(true);
-      supabase
-        .from('profiles')
-        .select('*')
-        .eq('id', user.id)
-        .single()
-        .then(({ data }) => {
+      (async () => {
+        try {
+          const { data } = await supabase
+            .from('profiles')
+            .select('*')
+            .eq('id', user.id)
+            .single();
           if (data) setProfile({ ...profile, ...data });
-        })
-        .finally(() => setProfileLoading(false));
+        } finally {
+          setProfileLoading(false);
+        }
+      })();
     }
   }, [user]);
 
