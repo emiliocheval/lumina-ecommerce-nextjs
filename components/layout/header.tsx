@@ -94,7 +94,7 @@ export default function Header() {
                 key={link.href} 
                 href={link.href} 
                 label={link.label} 
-                currentPath={pathname} 
+                currentPath={pathname ?? ''} 
               />
             ))}
           </nav>
