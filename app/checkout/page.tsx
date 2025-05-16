@@ -10,7 +10,7 @@ import { createCheckoutSession } from '@/lib/checkout';
 import { toast } from 'sonner';
 import { supabase } from '@/lib/supabase';
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PK || '');
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || '');
 
 export default function CheckoutPage() {
   const router = useRouter();
