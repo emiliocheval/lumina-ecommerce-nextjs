@@ -11,10 +11,10 @@ import { Alert, AlertDescription } from '@/components/ui/alert';
 
 export default function ProductGrid() {
   const searchParams = useSearchParams();
-  const category = searchParams.get('category');
-  const minPrice = searchParams.get('minPrice');
-  const maxPrice = searchParams.get('maxPrice');
-  const sort = searchParams.get('sort');
+  const category = searchParams?.get('category');
+  const minPrice = searchParams?.get('minPrice');
+  const maxPrice = searchParams?.get('maxPrice');
+  const sort = searchParams?.get('sort');
   
   const filters = {
     category: category || undefined,
