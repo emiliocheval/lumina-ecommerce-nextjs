@@ -7,14 +7,15 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 });
 
 export async function POST(req: NextRequest) {
-  const sig = req.headers.get('stripe-signature');
-  const body = await req.text();
+  const sig = req.headers.get('stripe-signature') as string;
+  const rawBody = await req.arrayBuffer();
 
-  let event: Stripe.Event;
+  let event;
+
   try {
     event = stripe.webhooks.constructEvent(
-      body,
-      sig!,
+      Buffer.from(rawBody),
+      sig,
       process.env.STRIPE_WEBHOOK_SECRET!
     );
   } catch (err: any) {
