@@ -11,7 +11,8 @@ interface HeroProps {
     title: string;
     subtitle: string;
     cta: string;
-    ctaLink: string;
+    ctaLink?: string;
+    link?: string;
     image: string;
   };
 }
