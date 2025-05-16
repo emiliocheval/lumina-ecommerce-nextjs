@@ -183,27 +183,7 @@ function MobileFilters({
 }) {
   return (
     <div className="space-y-6">
-      {/* Categories */}
-      <div className="space-y-4">
-        <h3 className="font-medium">Categories</h3>
-        <div className="grid grid-cols-2 gap-2">
-          {CATEGORIES.map((cat) => (
-            <div key={cat.id} className="flex items-center space-x-2">
-              <Checkbox 
-                id={`category-${cat.id}-mobile`}
-                checked={category === cat.id}
-                onCheckedChange={() => setCategory(cat.id)}
-              />
-              <Label 
-                htmlFor={`category-${cat.id}-mobile`}
-                className="cursor-pointer text-sm"
-              >
-                {cat.name}
-              </Label>
-            </div>
-          ))}
-        </div>
-      </div>
+      {/* Categories filter removed: implement dynamic categories here in the future */}
       
       {/* Price Range */}
       <div className="space-y-4">
@@ -268,23 +248,7 @@ function DesktopFilters({
           <AccordionTrigger>Categories</AccordionTrigger>
           <AccordionContent>
             <div className="space-y-2 pt-2">
-              {CATEGORIES.map((cat) => (
-                <div key={cat.id} className="flex items-center space-x-2">
-                  <Checkbox 
-                    id={`category-${cat.id}`}
-                    checked={category === cat.id}
-                    onCheckedChange={() => {
-                      setCategory(cat.id);
-                    }}
-                  />
-                  <Label 
-                    htmlFor={`category-${cat.id}`}
-                    className="cursor-pointer text-sm"
-                  >
-                    {cat.name}
-                  </Label>
-                </div>
-              ))}
+              {/* Categories filter removed: implement dynamic categories here in the future */}
             </div>
           </AccordionContent>
         </AccordionItem>
