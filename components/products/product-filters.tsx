@@ -39,10 +39,10 @@ export default function ProductFilters() {
   const searchParams = useSearchParams();
   
   // Get filter states from URL
-  const currentCategory = searchParams.get('category') || 'all';
-  const currentMinPrice = Number(searchParams.get('minPrice') || 0);
-  const currentMaxPrice = Number(searchParams.get('maxPrice') || MAX_PRICE);
-  const currentSort = searchParams.get('sort') || 'newest';
+  const currentCategory = searchParams?.get('category') || 'all';
+  const currentMinPrice = Number(searchParams?.get('minPrice') || 0);
+  const currentMaxPrice = Number(searchParams?.get('maxPrice') || MAX_PRICE);
+  const currentSort = searchParams?.get('sort') || 'newest';
   
   // Local state for filters
   const [category, setCategory] = useState(currentCategory);
