@@ -97,7 +97,7 @@ export default function ProductFilters() {
     setCategory('all');
     setPriceRange([0, MAX_PRICE]);
     setSort('newest');
-    router.push(pathname);
+    router.push(pathname ?? '/');
     setIsOpen(false);
   };
   
