@@ -20,17 +20,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   const sig = req.headers['stripe-signature'] as string;
   let event;
-  let rawBody = '';
+  const chunks: Uint8Array[] = [];
 
-  // Read the raw body from the request
+  // Read the raw body as a Buffer
   await new Promise<void>((resolve) => {
     req.on('data', (chunk) => {
-      rawBody += chunk;
+      chunks.push(chunk);
     });
     req.on('end', () => {
       resolve();
     });
   });
+  const rawBody = Buffer.concat(chunks);
 
   try {
     event = stripe.webhooks.constructEvent(
