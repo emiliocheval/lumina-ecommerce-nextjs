@@ -12,7 +12,7 @@ export default async function Home() {
     <div className="flex flex-col gap-12 pb-12">
       <Hero content={heroContent} />
       <FeaturedProducts />
-      <CategoryHighlights content={categoryContent} />
+      <CategoryHighlights />
       <Newsletter />
     </div>
   );
