@@ -59,7 +59,7 @@ export default function ProductFilters() {
   
   // Apply filters
   const applyFilters = () => {
-    const params = new URLSearchParams(searchParams.toString());
+    const params = new URLSearchParams(searchParams?.toString() || '');
     
     // Update category
     if (category === 'all') {
